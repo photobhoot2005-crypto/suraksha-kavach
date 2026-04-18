@@ -101,8 +101,7 @@ async def process_single_event(event: dict):
             correlation["multi_threat"]
         )
 
-        mitre_info = get_mitre(rule_result.get("rule", "UNKNOWN"))
-
+        mitre_info = get_mitre(rule_result.get("rule", "UNKNOWN"), event)
         explanation = explain({
             **alert,
             "confidence": final_conf,
